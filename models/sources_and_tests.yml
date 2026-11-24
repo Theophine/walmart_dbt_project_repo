@@ -1,0 +1,67 @@
+sources:
+  - name: dbo
+    database: walmart_warehouse  
+    schema: dbo  
+
+    config:
+      freshness: # changed to config in v1.9
+        warn_after:
+          count: 365
+          period:  day
+        error_after:
+          count: 500
+          period:  day
+      loaded_at_field: updated_timestamp
+
+
+    #below are the source tables in my model all defined with their columns and data tests
+    
+    tables:
+      - name: orders
+        description:  This table contains order records.
+        columns:
+          - name: order_id
+            description:  The unique identifier for the order.
+            data_tests:
+              - not_null
+              - unique
+      - name: customers
+        description:  This table contains customer records.
+        columns:
+          - name: customer_id
+            description:  The unique identifier for the customer.
+            data_tests:
+              - not_null
+              - unique
+      - name: products
+        description:  This table contains product records.
+        columns:
+          - name: product_id
+            description:  The unique identifier for the product.
+            data_tests:
+              - not_null
+              - unique
+      - name: employees
+        description:  This table contains employee records.
+        columns:
+          - name: employee_id
+            description:  The unique identifier for the employee.
+            data_tests:
+              - not_null
+              - unique
+      - name: order_items
+        description:  This table contains order item records.
+        columns:
+          - name: order_item_id
+            description:  The unique identifier for the order item.
+            data_tests:
+              - not_null
+              - unique
+      - name: stores
+        description:  This table contains store records.
+        columns:
+          - name: store_id
+            description:  The unique identifier for the store.
+            data_tests:
+              - not_null
+              - unique
