@@ -41,6 +41,16 @@ sources:
             data_tests:
               - not_null
               - unique
+          - name: price
+            description:  The price of the product.
+            data_tests:
+              - not_null:
+                  config:
+                    where: "price < 0"
+                    severity: warn 
+              - integer_column_greater_than_zero:
+                  config:
+                    severity: warn
       - name: employees
         description:  This table contains employee records.
         columns:

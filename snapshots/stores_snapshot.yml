@@ -6,7 +6,7 @@ snapshots:
     description:  This snapshot captures the state of the stores table over time.
     config:
       database: walmart_warehouse 
-      schema: bronze
+      schema: snapshot
       strategy: timestamp 
       unique_key: store_id
-      updated_at: created_timestamp
+      updated_at: updated_timestamp

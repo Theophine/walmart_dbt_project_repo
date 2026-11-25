@@ -50,3 +50,8 @@ models:
     gold:
       +materialized: view
       +schema: gold
+
+snapshots:
+  walmart_dbt_cloud_project_:
+    +schema: snapshot
+    +materialized: snapshot
